@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glumii - GDM Counselor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+    <section id="login-screen" class="glass-card">
+        <div class="brand-logo">G</div>
+        <h2>ยินดีต้อนรับค่ะ</h2>
+        <p>ให้ Glumii ดูแลคุณแม่นะคะ</p>
+        <div class="input-group">
+            <input type="text" id="username" placeholder="กรอกชื่อเล่นคุณแม่...">
+            <button onclick="login()" class="btn-primary">เริ่มต้นใช้งาน</button>
+        </div>
+    </section>
+
+    <section id="chat-screen" class="chat-wrapper hidden">
+        <div class="chat-header">
+            <div class="header-info">
+                <span class="status-dot"></span>
+                <h3 id="user-display">Glumii</h3>
+            </div>
+        </div>
+        
+        <div id="chat-box" class="chat-body">
+            <div class="msg bot-msg">สวัสดีค่ะคุณแม่ วันนี้ทานอะไรมาบ้างคะ? ส่งรูปมาให้ Glumii ช่วยดูได้นะ</div>
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="พิมพ์คุยกับ Glumii...">
+            <button id="send-btn" class="btn-send">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+            </button>
+        </div>
+    </section>
+</div>
+<button id="admin-fab" onclick="toggleAdminPanel()">
+    ⚙️
+</button>
+
+<div id="admin-panel" class="admin-popup hidden-panel">
+    <div class="panel-header">
+        <span>Admin Trigger</span>
+        <span class="close-btn" onclick="toggleAdminPanel()">×</span>
+    </div>
+    <div class="panel-body">
+        <p>จำลองระบบทักหาคุณแม่</p>
+        <input type="text" id="trigger-msg" placeholder="เช่น อย่าลืมทานยา...">
+        <button onclick="simulateTrigger()" class="btn-trigger">ส่งข้อความ</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
