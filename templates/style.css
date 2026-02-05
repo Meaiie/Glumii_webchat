@@ -1,226 +1,173 @@
-/* style.css */
 :root {
-    --bg-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-    --pastel-pink: #FFD1DC;
-    --pastel-blue: #B3E5FC;
-    --soft-white: rgba(255, 255, 255, 0.9);
-    --text-main: #5A5A5A;
+    /* Palette สีพาสเทล */
+    --bg-pink: #FFF0F5;      /* Lavender Blush */
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --primary-pink: #FFB7C5; /* Cherry Blossom Pink */
+    --soft-pink: #FFD1DC;
+    --primary-blue: #B5EAD7; /* Magic Mint (อมเขียวนิดๆ พาสเทล) */
+    --text-color: #6D6D6D;
+    --text-header: #FF9EAA;
 }
 
 body {
     margin: 0;
     font-family: 'Kanit', sans-serif;
-    background-image: var(--bg-gradient);
+    /* พื้นหลัง Gradient ชมพูฟุ้งๆ */
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-main);
+    color: var(--text-color);
 }
 
 .hidden { display: none !important; }
 
-/* Login Card */
+/* --- Glass Card (กล่องใสๆ) --- */
 .glass-card {
-    background: var(--soft-white);
+    background: var(--card-bg);
     padding: 40px;
-    border-radius: 35px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(255, 183, 197, 0.3); /* เงาสีชมพู */
     text-align: center;
-    width: 320px;
+    width: 340px;
+    border: 2px solid #fff;
 }
 
 .brand-logo {
-    width: 80px; height: 80px;
-    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-blue));
+    width: 90px; height: 90px;
+    background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
     border-radius: 50%;
     margin: 0 auto 20px;
     display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 2.5rem; font-weight: bold;
-    box-shadow: 0 8px 15px rgba(255, 209, 220, 0.4);
+    color: white; font-size: 2.8rem; font-weight: bold;
+    box-shadow: 0 10px 20px rgba(255, 154, 158, 0.4);
 }
 
-/* Chat Layout */
+h2 { color: var(--text-header); margin-bottom: 5px; }
+p { font-size: 0.9rem; color: #999; margin-top: 0; }
+
+/* --- Inputs & Buttons --- */
+input {
+    width: 100%; box-sizing: border-box;
+    padding: 15px 20px;
+    border: 2px solid #F3F3F3;
+    border-radius: 25px;
+    outline: none;
+    background: #FFFDFA;
+    transition: 0.3s;
+    color: var(--text-color);
+}
+input:focus { border-color: var(--primary-pink); }
+
+.btn-primary {
+    background: linear-gradient(to right, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    color: white; border: none;
+    padding: 15px; border-radius: 30px;
+    width: 100%; margin-top: 20px;
+    cursor: pointer; font-size: 1rem; font-weight: 500;
+    box-shadow: 0 5px 15px rgba(255, 154, 158, 0.3);
+    transition: transform 0.2s;
+}
+.btn-primary:hover { transform: translateY(-3px); }
+
+/* --- Mode Cards --- */
+.mode-options { display: flex; gap: 15px; margin-top: 25px; justify-content: center; }
+.mode-card {
+    background: white; border-radius: 25px;
+    padding: 20px 15px; width: 130px; cursor: pointer;
+    transition: 0.3s; box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    border: 2px solid transparent;
+}
+.mode-card:hover { transform: translateY(-5px); }
+.mode-card .icon { font-size: 2.5rem; margin-bottom: 10px; }
+.mode-card h3 { font-size: 0.9rem; margin: 5px 0; color: var(--text-color); }
+
+/* Hover Colors */
+.pink-hover:hover { border-color: #FFB7C5; }
+.blue-hover:hover { border-color: #A0E7E5; }
+.orange-hover:hover { border-color: #FFDAC1; }
+.red-hover:hover { border-color: #FF9AA2; }
+
+.btn-text {
+    background: none; border: none; color: #AAA;
+    margin-top: 20px; cursor: pointer; font-size: 0.9rem;
+}
+
+/* --- Chat UI --- */
 .chat-wrapper {
-    width: 400px;
-    height: 85vh;
-    background: white;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    width: 400px; height: 85vh;
+    background: white; border-radius: 35px;
+    display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
 
 .chat-header {
-    background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-blue));
-    padding: 20px;
-    color: white;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%); /* Warm Gradient */
+    background: linear-gradient(to right, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); /* Pink Gradient */
+    padding: 15px 20px; color: white;
+    display: flex; align-items: center; gap: 15px;
 }
-
-.status-dot {
-    width: 10px; height: 10px;
-    background: #4CAF50;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 8px;
+.header-back-btn {
+    background: rgba(255,255,255,0.25); border: none; color: white;
+    width: 35px; height: 35px; border-radius: 50%; cursor: pointer;
+    font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
 }
 
 .chat-body {
-    flex: 1;
-    padding: 20px;
-    background: #fdfdfd;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex: 1; padding: 20px; background: #fffcfc;
+    overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
 }
 
-/* Messages */
+/* Chat Bubbles */
 .msg {
-    padding: 12px 18px;
-    border-radius: 20px;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    padding: 12px 18px; border-radius: 20px;
+    font-size: 0.95rem; max-width: 75%; line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
 }
-
 .bot-msg {
-    background: var(--pastel-blue);
+    background: #F0F4F8; /* Soft Grey/Blue */
+    color: #555;
     align-self: flex-start;
     border-bottom-left-radius: 4px;
 }
-
 .user-msg {
-    background: var(--pastel-pink);
+    background: #FFD1DC; /* Pastel Pink */
+    color: #555;
     align-self: flex-end;
     border-bottom-right-radius: 4px;
 }
 
-/* Input Area */
-.chat-footer {
-    padding: 15px;
-    display: flex;
-    gap: 10px;
-    border-top: 1px solid #f0f0f0;
-}
-
-input[type="text"] {
-    flex: 1;
-    padding: 12px 18px;
-    border: 1px solid #eee;
-    border-radius: 25px;
-    outline: none;
-    background: #fafafa;
-}
-
-.btn-primary, .btn-send {
-    background: var(--pastel-blue);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-send { width: 50px; display: flex; align-items: center; justify-content: center; }
-.btn-primary { padding: 12px; margin-top: 15px; width: 100%; }
-
-/* Admin Tool */
-.admin-tool {
-    position: fixed; top: 10px; left: 10px;
-    background: rgba(255,255,255,0.8);
-    padding: 10px; border-radius: 10px;
-    font-size: 0.7rem; border: 1px solid #ddd;
-}
-
-/* --- Admin Floating Button (FAB) --- */
-#admin-fab {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 60px;
-    height: 60px;
-    background: white;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#admin-fab:hover {
-    transform: scale(1.1) rotate(90deg);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-/* --- Admin Popup Panel --- */
-.admin-popup {
-    position: fixed;
-    bottom: 100px;
-    right: 25px;
-    width: 280px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.5);
-    overflow: hidden;
-    z-index: 999;
-    
-    /* Animation Setting */
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    transform-origin: bottom right;
-}
-
-/* Class สำหรับซ่อน (ย่อขนาดลงจนหายไป) */
-.hidden-panel {
-    transform: scale(0);
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* ภายใน Panel */
-.panel-header {
-    background: linear-gradient(90deg, #FFD1DC, #ffdbfa);
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-}
-
-.close-btn {
-    cursor: pointer;
-    font-size: 1.2rem;
-    opacity: 0.8;
-}
-
-.panel-body {
-    padding: 20px;
-}
-
-.panel-body p { margin: 0 0 10px 0; font-size: 0.85rem; color: #666; }
-
-.btn-trigger {
-    width: 100%;
-    background: #FFD1DC;
-    color: #555;
-    border: none;
-    padding: 10px;
-    border-radius: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-weight: 500;
+/* Footer */
+.chat-footer { padding: 15px; display: flex; gap: 10px; border-top: 1px solid #f9f9f9; }
+.btn-send {
+    background: #FF9A9E; color: white; border: none;
+    width: 48px; height: 48px; border-radius: 50%;
+    cursor: pointer; display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 10px rgba(255, 154, 158, 0.4);
     transition: 0.2s;
 }
+.btn-send:hover { transform: scale(1.05); }
 
-.btn-trigger:hover {
-    background: #ffb7c5;
-    color: white;
+/* Admin FAB */
+#admin-fab {
+    position: fixed; bottom: 25px; right: 25px;
+    width: 60px; height: 60px;
+    background: white; color: #FF9A9E;
+    border-radius: 50%; border: none; font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(255, 154, 158, 0.4);
+    cursor: pointer; z-index: 100;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+#admin-fab:hover { transform: scale(1.1) rotate(15deg); }
+
+.admin-popup {
+    position: fixed; bottom: 100px; right: 25px; width: 260px;
+    background: rgba(255,255,255,0.98); border-radius: 20px;
+    padding: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    z-index: 99; transition: 0.3s; border: 1px solid #FFD1DC;
+}
+.hidden-panel { opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none; }
+.panel-header { display: flex; justify-content: space-between; color: #FF9A9E; font-weight: bold; margin-bottom: 10px; }
+.btn-trigger { width: 100%; padding: 10px; background: #FFD1DC; border:none; border-radius:15px; margin-top:8px; cursor:pointer; color: #fff; font-weight: bold;}
