@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glumii - GDM Counselor</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/Glumii pic(circle).png">
+    
+    <link rel="stylesheet" href="templates/style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,21 +19,55 @@
         <p>ให้ Glumii ดูแลคุณแม่นะคะ</p>
         <div class="input-group">
             <input type="text" id="username" placeholder="กรอกชื่อเล่นคุณแม่...">
-            <button onclick="login()" class="btn-primary">เริ่มต้นใช้งาน</button>
+            <button onclick="login()" class="btn-primary">ถัดไป</button>
         </div>
+    </section>
+
+    <section id="selection-screen" class="glass-card hidden">
+        <h2>เลือกรูปแบบการคุย</h2>
+        <p>วันนี้อยากให้ Glumii ช่วยแบบไหนคะ?</p>
+        <div class="mode-options">
+            <div class="mode-card pink-hover" onclick="selectMode('passive')">
+                <div class="icon">🤰</div>
+                <h3>ให้คำแนะนำ</h3>
+                <p>Passive Mode</p>
+            </div>
+            <div class="mode-card blue-hover" onclick="selectMode('active')">
+                <div class="icon">📋</div>
+                <h3>บันทึกข้อมูล</h3>
+                <p>Active Mode</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="active-submenu" class="glass-card hidden">
+        <h2>บันทึกข้อมูล</h2>
+        <p>เลือกหัวข้อที่จะบันทึกได้เลยค่ะ</p>
+        <div class="mode-options">
+            <div class="mode-card orange-hover" onclick="selectActiveOption('food')">
+                <div class="icon">🥪</div>
+                <h3>บันทึกอาหาร</h3>
+                <p>คำนวณโภชนาการ</p>
+            </div>
+            <div class="mode-card red-hover" onclick="selectActiveOption('sugar')">
+                <div class="icon">🩸</div>
+                <h3>บันทึกค่าน้ำตาล</h3>
+                <p>ติดตามระดับน้ำตาล</p>
+            </div>
+        </div>
+        <button onclick="goBack()" class="btn-text">❮ ย้อนกลับ</button>
     </section>
 
     <section id="chat-screen" class="chat-wrapper hidden">
         <div class="chat-header">
+            <button class="header-back-btn" onclick="goBack()">❮</button>
             <div class="header-info">
-                <span class="status-dot"></span>
                 <h3 id="user-display">Glumii</h3>
+                <span id="topic-badge">General Chat</span>
             </div>
         </div>
         
-        <div id="chat-box" class="chat-body">
-            <div class="msg bot-msg">สวัสดีค่ะคุณแม่ วันนี้ทานอะไรมาบ้างคะ? ส่งรูปมาให้ Glumii ช่วยดูได้นะ</div>
-        </div>
+        <div id="chat-box" class="chat-body"></div>
 
         <div class="chat-footer">
             <input type="text" id="user-input" placeholder="พิมพ์คุยกับ Glumii...">
@@ -39,23 +76,21 @@
             </button>
         </div>
     </section>
-</div>
-<button id="admin-fab" onclick="toggleAdminPanel()">
-    ⚙️
-</button>
 
-<div id="admin-panel" class="admin-popup hidden-panel">
-    <div class="panel-header">
-        <span>Admin Trigger</span>
-        <span class="close-btn" onclick="toggleAdminPanel()">×</span>
-    </div>
-    <div class="panel-body">
-        <p>จำลองระบบทักหาคุณแม่</p>
-        <input type="text" id="trigger-msg" placeholder="เช่น อย่าลืมทานยา...">
-        <button onclick="simulateTrigger()" class="btn-trigger">ส่งข้อความ</button>
+    <button id="admin-fab" onclick="toggleAdminPanel()">💖</button>
+    <div id="admin-panel" class="admin-popup hidden-panel">
+        <div class="panel-header">
+            <span>Admin Trigger</span>
+            <span class="close-btn" onclick="toggleAdminPanel()">×</span>
+        </div>
+        <div class="panel-body">
+            <p>ส่งข้อความหาคุณแม่</p>
+            <input type="text" id="trigger-msg" placeholder="ข้อความ...">
+            <button onclick="simulateTrigger()" class="btn-trigger">ส่งข้อความ</button>
+        </div>
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="statics/script.js"></script>
 </body>
 </html>
