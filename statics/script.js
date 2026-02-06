@@ -3,7 +3,7 @@
 let currentUser = "";
 let currentContext = ""; 
 // ใส่ URL n8n ของคุณตรงนี้
-const N8N_WEBHOOK = 'https://your-n8n-instance.com/webhook/gdm-counselor';
+const N8N_WEBHOOK = 'http://localhost:5678/webhook/Retrieve';
 
 // --- 1. History & Navigation (ระบบย้อนกลับ) ---
 window.onpopstate = function(event) {
