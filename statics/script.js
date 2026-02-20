@@ -68,7 +68,7 @@ function startChat(context) {
         badge.innerText = "บันทึกมื้ออาหาร 🥪";
         const hour = new Date().getHours();
         let meal = (hour < 11) ? "มื้อเช้า" : (hour < 16) ? "มื้อเที่ยง" : "มื้อเย็น";
-        welcomeMsg = `สวัสดีค่ะ ${meal}รับประทานคุณแม่${currentUser}อะไรหรือยังคะ? Glumii ช่วยคำนวณได้นะคะ`;
+        welcomeMsg = `สวัสดีค่ะ ${meal} คุณแม่${currentUser}รับประทานอะไรหรือยังคะ? Glumii ช่วยคำนวณได้นะคะ`;
     }
 
     chatBox.innerHTML = `<div class="msg bot-msg">${welcomeMsg}</div>`;
