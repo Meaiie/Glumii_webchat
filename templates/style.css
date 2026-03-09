@@ -171,3 +171,21 @@ input:focus { border-color: var(--primary-pink); }
 .hidden-panel { opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none; }
 .panel-header { display: flex; justify-content: space-between; color: #FF9A9E; font-weight: bold; margin-bottom: 10px; }
 .btn-trigger { width: 100%; padding: 10px; background: #FFD1DC; border:none; border-radius:15px; margin-top:8px; cursor:pointer; color: #fff; font-weight: bold;}
+
+/* เพิ่ม overflow: hidden ในคลาสเดิม เพื่อตัดส่วนที่ล้นวงกลมออก */
+.brand-logo {
+    width: 90px; height: 90px;
+    background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%); /* ถ้ารูปโลโก้มีพื้นหลังอยู่แล้ว ลบบรรทัด background นี้ทิ้งได้เลยครับ */
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 20px rgba(255, 154, 158, 0.4);
+    overflow: hidden; /* <--- เพิ่มบรรทัดนี้ */
+}
+
+/* เพิ่มส่วนนี้เข้าไปใหม่ เพื่อจัดการขนาดรูป */
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ทำให้รูปขยายเต็มพอดีวงกลมโดยไม่เบี้ยว */
+}
