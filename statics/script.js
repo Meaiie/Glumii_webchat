@@ -3,7 +3,7 @@
 let currentUser = "";
 let currentContext = ""; 
 // ใส่ URL n8n ของคุณตรงนี้
-const N8N_WEBHOOK = 'https://20.195.43.220.nip.io/webhook-test/Retrieve';
+const N8N_WEBHOOK = 'https://20.195.43.220.nip.io/webhook/Retrieve';
 
 // --- 1. History & Navigation (ระบบย้อนกลับ) ---
 window.onpopstate = function(event) {
